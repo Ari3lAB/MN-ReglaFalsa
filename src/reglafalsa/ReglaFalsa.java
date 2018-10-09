@@ -29,11 +29,15 @@ public class ReglaFalsa {
                 + " Error: " + eMax);
 
         while (Math.abs(fxM) >= eMax) {
-            System.out.println("\nIteracion #" + contador);
-            System.out.println("X media= " + xM);
-            System.out.println("F(X) izquierda= " + fxI);
-            System.out.println("F(X) derecha= " + fxD);
-            System.out.println("F(X) media= " + fxM);
+            System.out.println("\n\nIteracion #" + contador);
+            System.out.print("X media= ");
+            System.out.printf("%06f", xM);
+            System.out.print("\nF(X) izquierda= ");
+            System.out.printf("%06f", fxI);
+            System.out.print("\nF(X) derecha= ");
+            System.out.printf("%06f", fxD);
+            System.out.print("\nF(X) media= ");
+            System.out.printf("%06f", fxM);
 
             if (fxM * fxI > 0) {
                 xI = xM;
@@ -47,11 +51,16 @@ public class ReglaFalsa {
             fxM = f(xM);
 
             contador++;
-            System.out.println("Nueva X izq= " + xI);
-            System.out.println("Nueva X der= " + xD);
+            System.out.print("\nNueva X izq= ");
+            System.out.printf("%06f", xI);
+            System.out.print("\nNueva X der= ");
+            System.out.printf("%06f", xD);
+
         }
-        System.out.println("Raiz: " + xM);
-        System.out.println("F(X) media= " + fxM);
+        System.out.print("\nRaiz: ");
+        System.out.printf("%06f", xM);
+        System.out.print("\nF(X) media= ");
+        System.out.printf("%06f", fxM);
 
     }
 
