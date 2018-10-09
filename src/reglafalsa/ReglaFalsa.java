@@ -57,10 +57,20 @@ public class ReglaFalsa {
             System.out.printf("%06f", xD);
 
         }
+        System.out.println("\n\nIteracion #" + contador);
+        System.out.print("X media= ");
+        System.out.printf("%06f", xM);
+        System.out.print("\nF(X) izquierda= ");
+        System.out.printf("%06f", fxI);
+        System.out.print("\nF(X) derecha= ");
+        System.out.printf("%06f", fxD);
+        System.out.print("\nF(X) media= ");
+        System.out.printf("%06f", fxM);
         System.out.print("\n\nRaiz: ");
         System.out.printf("%06f", xM);
         System.out.print("\nF(X) media= ");
         System.out.printf("%06f", fxM);
+        System.out.println();
 
     }
 
