@@ -10,7 +10,7 @@ public class ReglaFalsa {
 
     Scanner teclado = new Scanner(System.in);
 
-    public void reglaFalsa(double limIzq, double limDer, double error) {
+    private void reglaFalsa(double limIzq, double limDer, double error) {
         double xI = limIzq;
         double xD = limDer;
         double eMax = error;
@@ -57,20 +57,20 @@ public class ReglaFalsa {
             System.out.printf("%06f", xD);
 
         }
-        System.out.print("\nRaiz: ");
+        System.out.print("\n\nRaiz: ");
         System.out.printf("%06f", xM);
         System.out.print("\nF(X) media= ");
         System.out.printf("%06f", fxM);
 
     }
 
-    public double f(double x) {
+    private double f(double x) {
         double fx;
         fx = (double) (-12 * (Math.pow(x, 5))) - (6.4 * (Math.pow(x, 3))) + 12; //metodo para calcular F(x)
         return fx;
     }
 
-    public double xMedia(double xI, double xD, double fxI, double fxD) {                                //metodo para calcular xM (en biseccion)
+    private double xMedia(double xI, double xD, double fxI, double fxD) {                                //metodo para calcular xM (en biseccion)
         return (((xI * fxD) - (xD * fxI)) / (fxD - fxI));
     }
 
