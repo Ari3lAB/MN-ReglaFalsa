@@ -18,7 +18,11 @@ public class ReglaFalsa {
         double fxD = f(xD);
         double xM = xMedia(xI, xD, fxI, fxD);
         double fxM = f(xM);
-        short contador = 1;
+
+        double eAprox = 1;                                                      //Usados Para error aproximado
+        double xMedAnterior = 0;
+
+        short contador = 0;
 
         if ((fxI > 0 && fxD > 0) || ((fxI < 0 && fxD < 0))) {                    //Verifica si existe raiz entre xi y xd
             System.out.println("Sin raíces en este intervalo");
@@ -28,7 +32,7 @@ public class ReglaFalsa {
         System.out.println("Valores iniciales: X izq= " + xI + "  X der= " + xD
                 + " Error: " + eMax);
 
-        while (Math.abs(fxM) >= eMax) {
+        while (Math.abs(eAprox) >= eMax) {
             System.out.println("\n\nIteracion #" + contador);
             System.out.print("X media= ");
             System.out.printf("%06f", xM);
@@ -41,14 +45,19 @@ public class ReglaFalsa {
 
             if (fxM * fxI > 0) {
                 xI = xM;
+                xMedAnterior = xI;
+
             } else {
                 xD = xM;
+                xMedAnterior = xD;
             }
 
             fxI = f(xI);
             fxD = f(xD);
             xM = xMedia(xI, xD, fxI, fxD);
             fxM = f(xM);
+
+            eAprox = ((xM - xMedAnterior) / xM) * 100;                          //Calcular error aproximado
 
             contador++;
             System.out.print("\nNueva X izq= ");
@@ -76,12 +85,12 @@ public class ReglaFalsa {
 
     private double f(double x) {
         double fx;
-        //fx = (double) (-12 * (Math.pow(x, 5))) - (6.4 * (Math.pow(x, 3))) + 12;   //metodo para calcular F(x)
-        fx = (double) (1 - (0.6*x)) / x;      //Updated
+      //fx = (double) (-12 * (Math.pow(x, 5))) - (6.4 * (Math.pow(x, 3))) + 12; //metodo para calcular F(x)
+        fx = (double) (1 - (0.6 * x)) / x;                                      //Updated
         return fx;
     }
 
-    private double xMedia(double xI, double xD, double fxI, double fxD) {           //metodo para calcular xM (en biseccion)
+    private double xMedia(double xI, double xD, double fxI, double fxD) {       //metodo para calcular xM (en biseccion)
         return (((xI * fxD) - (xD * fxI)) / (fxD - fxI));
     }
 
