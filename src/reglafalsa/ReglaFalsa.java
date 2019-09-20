@@ -76,11 +76,12 @@ public class ReglaFalsa {
 
     private double f(double x) {
         double fx;
-        fx = (double) (-12 * (Math.pow(x, 5))) - (6.4 * (Math.pow(x, 3))) + 12; //metodo para calcular F(x)
+        //fx = (double) (-12 * (Math.pow(x, 5))) - (6.4 * (Math.pow(x, 3))) + 12;   //metodo para calcular F(x)
+        fx = (double) (1 - (0.6*x)) / x;      //Updated
         return fx;
     }
 
-    private double xMedia(double xI, double xD, double fxI, double fxD) {                                //metodo para calcular xM (en biseccion)
+    private double xMedia(double xI, double xD, double fxI, double fxD) {           //metodo para calcular xM (en biseccion)
         return (((xI * fxD) - (xD * fxI)) / (fxD - fxI));
     }
 
